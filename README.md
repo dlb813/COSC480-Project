@@ -1,6 +1,6 @@
-James Jaluag
+Daniel Byrd
 COSC – 480
-Dr Tankeh
+Dr. Tankeh
 
 This document assumes that the machine already has Node.js and Git installed. If not, please obtain the software here:
 Node.js: https://nodejs.org/en/download/current
@@ -12,15 +12,24 @@ https://dev.mysql.com/downloads/installer/ (Select the one with the most downloa
 If Workbench is not added automatically, click the Add button on the right and add the product.
 2.	Open up Workbench and connect to the MySQL server.
 3.	On the top, click the Create a new schema icon. Name the new schema “credentials” and then click Apply.
-4.	Create a new user by clicking the Administration tab on the left and go to Users and Privileges. Click Add account, create the user of your own chosen credentials, and, on the Schema Privileges tab, click Add Entry, and add the CREATE, DROP, REFERENCES, SHOW VIEW, SELECT, INSERT, UPDATE, DELETE, EXECUTE privileges for the credentials schema. Click on Apply.
+4.	Create a new user by clicking the Administration tab on the left and go to Users and Privileges. Click Add account, create the user of your own chosen credentials, and, on the Schema Privileges tab, click Add Entry, and add the CREATE, DROP, ALTER REFERENCES, SHOW VIEW, SELECT, INSERT, UPDATE, DELETE, EXECUTE privileges for the credentials schema. Click on Apply.
 NOTE: There is no need to create the tables manually. Sequelize will create the tables automatically when the application is run.
 
 Step 2: Setting up Node.js and the application
 1.	Create a folder, open the folder, right-click, and open Git Bash. (If you are using Windows 11, select “Show more options” after right-clicking.
 2.	On the Git Bash, enter “git init” to initialise Git.
 3.	Clone the application’s repository using the command: 
-“git clone https://github.com/jemsjaluag/COSC-480-website.git”
-4.	Open the folder “COSC-480-website”
+“https://github.com/dlb813/COSC480-Project.git”
+4.	Open the folder “COSC-480-Project
 5.	Open up the “.env” file using text editors.
-6.	Change the variables “DB_PASSWORD” and “DB_USER” to the credentials of the account created previously. 
-7.	On Git bash, run the command “node app.js” to run the application.
+6.	Change the variables "PASSWORD" and "USERNAME" to the credentials of the account created previously.
+7.	Set up the Alchemy key:
+	a.	Go to https://www.alchemy.com/ and create an account.
+	b.	Create a new application and select the Sepolia network.
+	c.	Copy the API key from your Alchemy dashboard.
+	d.	Paste the API key into the "ALCHEMY_KEY" variable in the ".env" file.
+8.	Set up the house crypto credentials:
+	a.	Generate or obtain the private key for the house crypto wallet using Metamask or some other way.
+	b.	Paste the private key into the "HOUSE_PRIVATE_KEY" variable in the ".env" file.
+	c.	Optionally, add the house wallet address to the "HOUSE_ADDRESS" variable if needed.
+9.	On Git bash, run the command "node app.js" to run the application.
