@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet</title>
+  <link rel="stylesheet" href="/ui.css">
+</head>
+<body>
+  <main class="app-shell">
+    <h1>Wallet</h1>
+    <p>Manage your Ethereum wallet.</p>
+
+    <div id="message" class="message"></div>
+
+    <section class="card stack">
+      <h2>Your Wallet</h2>
+
+      <div id="walletStatus">Loading wallet information...</div>
+
+      <div id="walletDisplay" style="display:none;" class="stack">
+        <div>
+          <strong>Address</strong>
+          <div class="mono" id="walletAddress">-</div>
+        </div>
+
+        <div>
+          <strong>Balance</strong>
+          <div id="balanceValue">0 ETH</div>
+        </div>
+
+        <div>
+          <strong>Estimated USD</strong>
+          <div id="balanceUsd">$0</div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="refreshBalance()" type="button">Refresh Balance</button>
+          <button class="btn btn-primary" onclick="goToTransfer()" type="button">Go to Transfer</button>
+        </div>
+      </div>
+
+      <div id="noWallet" style="display:none;" class="stack">
+        <p>No wallet created for this account yet.</p>
+        <button class="btn btn-primary" onclick="createWallet()" type="button">Create Wallet</button>
+      </div>
+    </section>
+
+    <div class="nav">
+      <a href="/bank">Back to Bank</a>
+      <a href="/logout">Log Out</a>
+    </div>
+  </main>
+
+  <script src="/walletScript.js"></script>
+</body>
+</html>

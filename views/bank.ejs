@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Dashboard</title>
+  <link rel="stylesheet" href="/ui.css">
+</head>
+<body>
+  <main class="app-shell">
+    <h1>Welcome, <%= session.username %></h1>
+    <p>Choose what you want to do.</p>
+
+    <div class="card stack">
+      <h2>Crypto Wallet</h2>
+      <p>View your wallet, balances, and create one if needed.</p>
+      <div class="btn-row">
+        <a class="link-btn link-btn-primary" href="/wallet">Open Wallet</a>
+      </div>
+    </div>
+
+    <div class="card stack">
+      <h2>Transfer</h2>
+      <p>Send ETH to an address or a registered user.</p>
+      <div class="btn-row">
+        <a class="link-btn link-btn-secondary" href="/transfer">Open Transfer</a>
+      </div>
+    </div>
+
+    <div class="card stack">
+      <h2>Coin Flip Game</h2>
+      <p>Pick heads or tails and bet ETH against the house wallet.</p>
+      <div class="btn-row">
+        <a class="link-btn link-btn-secondary" href="/coinflip">Play Coin Flip</a>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a href="/logout">Log Out</a>
+    </div>
+  </main>
+</body>
+</html>

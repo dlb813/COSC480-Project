@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer ETH</title>
+  <link rel="stylesheet" href="/ui.css">
+</head>
+<body>
+  <main class="app-shell">
+    <h1>Transfer ETH</h1>
+    <p>Send from your logged-in wallet to a recipient.</p>
+
+    <div id="message" class="message"></div>
+
+    <section class="card stack">
+      <h2>Sender Wallet</h2>
+      <div><strong>Address</strong></div>
+      <div id="senderAddress" class="mono">Loading...</div>
+      <div><strong>Available Balance</strong></div>
+      <div id="availableBalance">0 ETH</div>
+    </section>
+
+    <form id="transferForm" class="stack">
+      <section class="card stack">
+        <h2>Transfer Details</h2>
+
+        <div>
+          <strong>Send To</strong>
+          <div class="recipient-row">
+            <label><input type="radio" id="addressType" name="recipientType" value="address" checked onchange="toggleRecipientInput()"> Ethereum Address</label>
+            <label><input type="radio" id="userType" name="recipientType" value="user" onchange="toggleRecipientInput()"> Registered User</label>
+          </div>
+        </div>
+
+        <div class="field recipient-input active" id="addressInput">
+          <label for="recipientAddress">Recipient Address</label>
+          <input id="recipientAddress" type="text" placeholder="0x..." onchange="validateRecipient()">
+          <div class="recipient-validation"></div>
+        </div>
+
+        <div class="field recipient-input" id="userInput">
+          <label for="recipientUsername">Username</label>
+          <input id="recipientUsername" type="text" placeholder="Enter username" onchange="validateRecipient()">
+          <div class="recipient-validation"></div>
+        </div>
+
+        <div class="field">
+          <label for="amount">Amount (ETH)</label>
+          <input id="amount" type="number" placeholder="0.0" step="0.001" min="0" onchange="updateSummary()">
+        </div>
+      </section>
+
+      <section class="card summary" id="transactionSummary">
+        <h2>Summary</h2>
+        <div>To: <span id="summaryTo" class="mono">-</span></div>
+        <div>Amount: <span id="summaryAmount">-</span></div>
+      </section>
+
+      <div class="btn-row">
+        <button class="btn btn-secondary" type="button" onclick="goBack()">Back</button>
+        <button class="btn btn-primary" type="submit" id="submitBtn">Send ETH</button>
+      </div>
+    </form>
+
+    <div class="nav">
+      <a href="/bank">Back to Bank</a>
+      <a href="/logout">Log Out</a>
+    </div>
+  </main>
+
+  <script src="/transferScript.js"></script>
+</body>
+</html>

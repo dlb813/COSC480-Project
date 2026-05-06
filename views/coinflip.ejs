@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Flip</title>
+  <link rel="stylesheet" href="/ui.css">
+</head>
+<body>
+  <main class="app-shell">
+    <h1>Coin Flip</h1>
+    <p>Bet ETH against the house wallet.</p>
+
+    <div id="message" class="message"></div>
+
+    <section class="card stack">
+      <h2>Your Wallet</h2>
+      <div><strong>Address</strong></div>
+      <div id="playerAddress" class="mono">Loading...</div>
+      <div><strong>Available Balance</strong></div>
+      <div id="playerBalance">0 ETH</div>
+    </section>
+
+    <section class="card stack">
+      <h2>House Wallet</h2>
+      <div><strong>Address</strong></div>
+      <div id="houseAddress" class="mono">Loading...</div>
+      <div><strong>Available House Balance</strong></div>
+      <div id="houseBalance">0 ETH</div>
+      <div><strong>Current Max Bet</strong></div>
+      <div id="maxBet">0 ETH</div>
+    </section>
+
+    <form id="coinflipForm" class="stack">
+      <section class="card stack">
+        <h2>Place Bet</h2>
+        <div class="recipient-row">
+          <label><input type="radio" name="choice" value="heads" checked> Heads</label>
+          <label><input type="radio" name="choice" value="tails"> Tails</label>
+        </div>
+
+        <div class="field">
+          <label for="betAmount">Bet Amount (ETH)</label>
+          <input id="betAmount" type="number" step="0.001" min="0" placeholder="0.01" required>
+        </div>
+      </section>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="betBtn" type="submit">Flip Coin</button>
+      </div>
+    </form>
+
+    <section class="card stack" id="flipAnimationCard" style="display:none; text-align:center;">
+      <h2>Flipping...</h2>
+      <img src="/coinflip.gif" alt="Coin flipping animation" style="max-width: 220px; width: 100%; margin: 0 auto;">
+    </section>
+
+    <section class="card stack" id="resultCard" style="display:none;">
+      <h2>Result</h2>
+      <div>Coin: <strong id="flipResult">-</strong></div>
+      <div>Status: <strong id="winLoseResult">-</strong></div>
+      <div>Transaction: <span id="txHash" class="mono">-</span></div>
+    </section>
+
+    <div class="nav">
+      <a href="/bank">Back to Bank</a>
+      <a href="/wallet">Wallet</a>
+      <a href="/logout">Log Out</a>
+    </div>
+  </main>
+
+  <script src="/coinflipScript.js"></script>
+</body>
+</html>
