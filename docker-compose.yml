@@ -18,7 +18,7 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: credentials
       MYSQL_USER: appuser
-      MYSQL_PASSWORD: apppassword
+      MYSQL_PASSWORD: apppass
     volumes:
       - db_data:/var/lib/mysql
     ports:
